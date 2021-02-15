@@ -19,6 +19,7 @@
         id="newHero"
         v-model.lazy="newHero"
         placeholder="Type Hero Name Here"
+        ref="newHeroRefs"
       />
       <button
         class="border rounded bg-gradient-to-t from-red-700 to-pink-500 text-white"
@@ -47,6 +48,9 @@ export default {
     remove(index) {
       this.dcHeroes = this.dcHeroes.filter((hero, i) => i != index);
     },
+  },
+  mounted() {
+    this.$refs.newHeroRefs.focus();
   },
   data() {
     return {

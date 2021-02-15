@@ -4,6 +4,7 @@ import DcHeroes from "./pages/DcHeroes"
 import Calendar from "./pages/Calendar"
 import Markdown from "./pages/Markdown"
 import Slider from "./pages/Slider";
+//import LoginModal from "./components/LoginModal";
 
 const routes = [
     {path:'/', component: TheHome},
@@ -11,7 +12,6 @@ const routes = [
     {path:'/calendar', component: Calendar},
     {path:'/markdown', component: Markdown},
     {path:'/slider', component: Slider},
-
 ]
 
 const router = createRouter({

@@ -11,6 +11,7 @@
           id="left-text"
           cols="30"
           rows="10"
+          ref="markdownTextArea"
         ></textarea>
       </article>
       <article class="w-1/2 border bg-gray-100" v-html="markedText"></article>
@@ -35,6 +36,11 @@ export default {
     markedText() {
       return marked(this.text);
     },
+  },
+
+  mounted() {
+    this.$refs.markdownTextArea.focus();
+
   },
 
   methods: {
