@@ -20,15 +20,16 @@
 </template>
 
 <script>
-import marked from "marked";
-import debounce from "../utilities/mixins/debounce";
+import marked from "marked"
+import useDebounce from "../utilities/composition/useDebounce"
 
 export default {
-  mixins: [debounce],
+  setup() {
+  },
   data() {
     return {
       text: "**this is markdown app**",
-      useDebounce: "",
+      debounce: "",
     };
   },
 
@@ -39,6 +40,7 @@ export default {
   },
 
   mounted() {
+    this.debounce = useDebounce()
     this.$refs.markdownTextArea.focus();
 
   },
@@ -47,11 +49,6 @@ export default {
     update(e) {
       const task = () => (this.text = e.target.value);
       this.debounce(task, 500);
-    },
-
-    mounted() {
-      this.useDebounce = debounce();
-      this.$refs.markdownTextArea.focus();
     },
   },
 };
