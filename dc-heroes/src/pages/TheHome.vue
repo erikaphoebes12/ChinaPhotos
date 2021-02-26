@@ -5,11 +5,10 @@
 
 <script>
 export default {
-    data() {
-        return {
-            
-        }
-    },
+  //check if vuex initial setup is doing great
+    mounted() {
+      console.log(this.$store.state);
+    }
 }
 </script>
 
