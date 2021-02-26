@@ -9,7 +9,7 @@
       class="mx-2"
       >{{ item.title }}</router-link
     >
-    <button v-if="isLoggedIn" class="mx-2" @click="logout">Logout</button>
+    <button v-if="store.isLoggedIn" class="mx-2" @click="logout">Logout</button>
     <button v-else class="mx-2" @click="$emit('open-login-modal')">
       Login
     </button>
@@ -20,12 +20,13 @@
 import firebase from "../utilities/firebase";
 
 export default {
-  props: {
+  // replaced by Vuex 4 isLoggedIn property
+  /* props: {
     isLoggedIn: {
       type: Boolean,
       required: true,
     },
-  },
+  }, */
   data() {
     return {
       list: [
@@ -38,6 +39,13 @@ export default {
         { title: "Chat", to: "/chat" },
       ],
     };
+  },
+
+  computed: {
+    //data imported using Vuex 4
+    isLoggedIn() {
+      return this.$store.state.isLoggedIn;
+    },
   },
 
   methods: {

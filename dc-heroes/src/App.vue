@@ -18,20 +18,30 @@ export default {
   data() {
     return {
       isLoginOpen: false,
-      isLoggedIn: false,
-      authUser: {},
     }
   },
   mounted() {
     firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     // User is signed in.
-    this.isLoggedIn = true;
-    this.authUser = user;
+
+    // Using Vuex State Management
+    this.$store.commit("setIsLoggedIn", true);
+    this.$store.commit("setAuthUser", user);
+
+    // same with Vuex 4
+    /* this.isLoggedIn = true;
+    this.authUser = user; */
   } else {
     // No user is signed in.
-    this.isLoggedIn = false;
-    this.authUser = {};
+
+    // Using Vuex State Management
+    this.$store.commit("setIsLoggedIn", false);
+    this.$store.commit("setAuthUser", {});
+
+    // same with Vuex 4
+    /* this.isLoggedIn = false;
+    this.authUser = {}; */
   }
 });
   },
@@ -41,14 +51,3 @@ export default {
   },
 };
 </script>
-
-<style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
-</style>
