@@ -7,6 +7,7 @@ import Slider from "./pages/Slider"
 import Calculator from "./pages/Calculator"
 import ReusableModal from "./pages/ReusableModal"
 import Chat from "./pages/Chat"
+import UserCrud from "./pages/UserCrud"
 import store from './store/index'
 
 const routes = [
@@ -25,6 +26,7 @@ const routes = [
         path: '/chat', component: Chat,
         meta: { middleware: 'auth' }
     },
+    { path: '/user-crud', component: UserCrud},
 ]
 
 const router = createRouter({

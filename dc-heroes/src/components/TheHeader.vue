@@ -37,6 +37,7 @@ export default {
         { title: "Calculator", to: "/calculator" },
         { title: "Modal", to: "/reusable-modal" },
         { title: "Chat", to: "/chat" },
+        { title: "User Crud", to: "/user-crud" },
       ],
     };
   },
