@@ -15,7 +15,10 @@ const routes = [
     { path: '/calendar', component: Calendar },
     { path: '/markdown', component: Markdown },
     { path: '/slider-carousel', component: Slider },
-    { path: '/calculator', component: Calculator },
+    {
+        path: '/calculator', component: Calculator,
+        meta: { middleware: 'auth' }
+    },
     { path: '/reusable-modal', component: ReusableModal },
     //Disable Chat to Home Component if User not LoggedIn
     {
