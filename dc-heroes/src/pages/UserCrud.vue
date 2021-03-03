@@ -42,16 +42,19 @@ export default {
     });
 
     onMounted(async () => {
-      const { data } = await axios.get("https://reqres.in/api/users");
+      //const { data } = await axios.get("https://reqres.in/api/users");
+      const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/users`);
       state.users = data;
     });
 
     async function next() {
-      const { data } = await axios.get("https://reqres.in/api/users?page=2")
+      //const { data } = await axios.get("https://reqres.in/api/users?page=2")
+      const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/users?page=2`)
       state.users = data
     }
     async function prev() {
-      const { data } = await axios.get("https://reqres.in/api/users?page=1")
+      //const { data } = await axios.get("https://reqres.in/api/users?page=1")
+      const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/users?page=1`)
       state.users = data
     }
     
